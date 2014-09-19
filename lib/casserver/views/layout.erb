@@ -6,13 +6,165 @@
       xml:lang="en" lang="en" >
 
   <head>
-    <title><%= escape_html @organization %><%= t.label.central_login_title %></title>
-    <link rel="stylesheet" type="text/css" href="<%= escape_html @uri_path %>/themes/cas.css" />
-    <link rel="stylesheet" type="text/css" href="<%= escape_html @uri_path %>/themes/<%= escape_html @theme %>/theme.css" />
-    <link rel="icon" type="image/png" href="<%= escape_html @uri_path %>/themes/<%= escape_html @theme %>/favicon.png" />
+    <title><%= escape_html @organization %> Login</title>
+    <link data-turbolinks-track="true" href="//<%= @domain %>/assets/public.css?body=1" media="all" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic' rel='stylesheet' type='text/css'>
+    <link rel="favorite icon" type="image/png" href="//<%= @domain %>/assets/favicon.ico" />
   </head>
 
   <body onload="if (document.getElementById('username')) document.getElementById('username').focus()">
-    <%= yield %>
-  </body>
+
+
+    <div class="modal fade" id="notice-modal" tabindex="-1"
+      role="dialog" aria-labelledby="notice-modal-label" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="notice-modal-label">Notice!</h4></div><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div>
+    
+    <div class="public-container">
+
+      <div class="header">
+        <div class="floating-header">
+          <div class="plank">
+            <div class="section-container">
+              <section id="banner" role="banner">
+                <div class="top-left no-pad">
+                  <a href="//<%= @domain %>/"><img alt="Bz logo 338" src="//<%= @domain %>/assets/bz_logo_338.png" /></a>
+                </div>
+                <div class="navigation-holder no-pad">
+                  <div id="top-navigation" role="navigation">
+                    <ul class="nav navbar-nav">
+                      <li><a class="" href="//<%= @domain %>/">Home</a></li>
+                      <li><a class="" href="//<%= @domain %>/apply">For Students</a></li>
+                      <li><a class="" href="//<%= @domain %>/volunteer">For Volunteers</a></li>
+                      <li><a class="" href="//<%= @domain %>/partner">For Partners</a></li>
+                      <li>   <a href="//<%= @domain %>/users/sign_in">Log In</a>
+
+</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+            </div> <!-- .section-container -->
+          </div>
+        </div> <!-- .floating-header -->
+        <!-- this acts to fill the space when the floating header is in fixed position up top -->
+        <!-- when it moves down, this spacer assumes its size, keeping the rest of the page content
+             from jumping around, confusing the user as to where they were looking -->
+        <div class="floating-header-spacer"></div>
+      </div> <!-- .header -->
+
+      <main role="main">
+        <%= yield %>
+      </main>
+
+      <div id="footer" class="plank">
+  <div class="section-container">
+    <section>
+      <div class="col-sm-2">
+        <a href="//<%= @domain %>/"><img alt="Bz logo 338" src="//<%= @domain %>/assets/bz_logo_338.png" /></a>
+      </div>
+      <div class="col-sm-5">
+        <a href="//<%= @domain %>/">Home</a><br />
+        <a href="//<%= @domain %>/apply">Apply</a><br />
+        <a href="//<%= @domain %>/volunteer">Volunteer</a><br />
+        <a href="//<%= @domain %>/partner">Partner</a><br />
+           <a href="//<%= @domain %>/users/sign_in">Log In</a>
+
+<br />
+        <a href="//<%= @domain %>/jobs">Jobs</a><br />
+        Contact us: <a href="mailto:info@beyondz.org">info@beyondz.org</a>
+      </div>
+      <div class="col-sm-5 text-right">
+        <p>&copy; Beyond Z 2014</p>
+      </div>
+    </section>
+  </div>
+</div>
+       
+    </div> <!-- .public-container -->
+
+    <link data-turbolinks-track="true" href="//<%= @domain %>/assets/public.css?body=1" media="all" rel="stylesheet" />
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/core.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/widget.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/accordion.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/position.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/menu.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/autocomplete.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/button.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/datepicker.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/mouse.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/draggable.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/resizable.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/dialog.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/droppable.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-blind.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-bounce.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-clip.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-drop.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-explode.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-fade.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-fold.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-highlight.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-size.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-scale.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-puff.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-pulsate.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-shake.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-slide.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/effect-transfer.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/progressbar.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/selectable.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/selectmenu.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/slider.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/sortable.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/spinner.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/tabs.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui/tooltip.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery-ui.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jquery_ujs.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/turbolinks.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/affix.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/alert.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/button.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/carousel.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/collapse.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/dropdown.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/tab.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/transition.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/scrollspy.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/modal.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/tooltip.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap/popover.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/bootstrap.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/handlebars-v1.3.0.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/jRating.jquery.min.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/components/comments.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/components/compare_and_rank.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/components/file_upload.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/components/video_quiz.js?body=1"></script>
+<script data-turbolinks-eval="false" data-turbolinks-track="true" src="//<%= @domain %>/assets/main.js?body=1"></script>
+<script data-turbolinks-track="true" src="//<%= @domain %>/assets/public.js?body=1"></script>
+<script data-turbolinks-track="true" src="//<%= @domain %>/assets/public/enrollments.js?body=1"></script>
+<script data-turbolinks-track="true" src="//<%= @domain %>/assets/public/users.js?body=1"></script>
+
+
+    <script>
+//<![CDATA[
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48011005-1', 'beyondz.org');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+
+//]]>
+</script>
+
+</body>
+
+
 </html>
