@@ -1,5 +1,13 @@
 # RubyCAS-Server
 
+## Beyond Z Customizations
+
+The file lib/casserver/views/layout.erb has the login layout html. This is based on the main site, but it is modified, so must be maintained separately.
+
+The public/ folder has image and css assets brought off the main site. These are simply downloaded from the production site and renamed. They do NOT need to be maintained separately at this time. Currently required are the logo, favicon, and stylesheet.
+
+The file lib/beyondz.rb holds our authenticator. It uses a cooperative check_credentials http api on the platform to check against the main database. It is configured via config.yml for server (string), port (integer), and ssl (boolean) to know where to connect.
+
 ## Copyright
 
 Portions contributed by Matt Zukowski are copyright (c) 2011 Urbacon Ltd.

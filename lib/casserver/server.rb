@@ -278,7 +278,7 @@ module CASServer
       content_type :html, 'charset' => 'utf-8'
       @theme = settings.config[:theme]
       @organization = settings.config[:organization]
-      @domain = settings.config[:domain]
+      @domain = settings.config[:platform_domain]
       @uri_path = settings.config[:uri_path]
       @infoline = settings.config[:infoline]
       @custom_views = settings.config[:custom_views]
