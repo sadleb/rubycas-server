@@ -18,6 +18,8 @@
 # The following are example configurations for each of these three methods:
 #
 
+# This is the domain of the main platform website
+platform_domain: beyondz.org
 
 ###
 ### WEBrick example
@@ -176,6 +178,21 @@ database:
 #  user_table: users
 #  username_column: username
 #  password_column: password
+#
+
+# Beyond Z Authenticator
+authenticator:
+  class: BeyondZ::CustomAuthenticator
+  source: beyondz.rb
+  server: beyondz.org
+  # We can override ssl, port, and self signed options for dev
+  # The default is to use SSL.
+  # ssl: false
+  # port: 80
+  # allow_self_signed: true
+
+
+
 #
 # When replying to a CAS client's validation request, the server will normally
 # provide the client with the authenticated user's username. However it is
