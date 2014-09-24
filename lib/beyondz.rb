@@ -4,15 +4,18 @@ module BeyondZ
       raise CASServer::AuthenticatorError, "Authenticator configuration needs server" unless options[:server]
 
       @@server = options[:server]
-      @@port = options[:port] ? options[:port].to_i : 80
-      @@ssl = options[:ssl] ? options[:ssl].to_b : false
+      @@ssl = (!options[:ssl].nil?) ? options[:ssl] : true
+      @@port = (!options[:port].nil?) ? options[:port] : (@@ssl ? 443 : 80)
+      @@allow_self_signed = (!options[:allow_self_signed].nil?) ? options[:allow_self_signed] : false
     end
 
     def validate(credentials)
       http = Net::HTTP.new(@@server, @@port)
       if @@ssl
         http.use_ssl = true
-        http.verify_mode = OpenSSL::SSL::VERIFY_NONE # self-signed cert would fail
+        if @@allow_self_signed
+          http.verify_mode = OpenSSL::SSL::VERIFY_NONE # self-signed cert would fail
+        end
       end
 
       request = Net::HTTP::Get.new("/users/check_credentials?username=#{URI::encode_www_form_component(credentials[:username])}&password=#{URI::encode_www_form_component(credentials[:password])}")
