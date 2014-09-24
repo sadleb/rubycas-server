@@ -18,6 +18,8 @@
 # The following are example configurations for each of these three methods:
 #
 
+# This is the domain of the main platform website
+platform_domain: beyondz.org
 
 ###
 ### WEBrick example
@@ -31,9 +33,6 @@
 server: webrick
 port: 443
 ssl_cert: /path/to/your/ssl.pem
-
-# This is the domain of the main platform website
-platform_domain: beyondz.org
 
 # If your private key is in a separate file from the cert
 
@@ -188,9 +187,9 @@ authenticator:
   server: beyondz.org
   # We can override ssl, port, and self signed options for dev
   # The default is to use SSL.
-  ssl: false
-  port: 80
-  allow_self_signed: true
+  # ssl: false
+  # port: 80
+  # allow_self_signed: true
 
 
 
