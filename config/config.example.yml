@@ -18,8 +18,8 @@
 # The following are example configurations for each of these three methods:
 #
 
-# This is the domain of the main platform website
-platform_domain: beyondz.org
+# This is the domain of the main public website
+public_site_domain: beyondz.org
 
 ###
 ### WEBrick example

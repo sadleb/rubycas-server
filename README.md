@@ -6,7 +6,7 @@ The file lib/casserver/views/layout.erb has the login layout html. This is based
 
 The public/ folder has image and css assets brought off the main site. These are simply downloaded from the production site and renamed - to do this, load the beyondz.org site in your browser, view source and find the link rel=styleshet near the top. Download that file and save it in here as public/beyondz.css. They do NOT need to be maintained separately at this time. Currently required are the logo, favicon, and stylesheet.
 
-The file lib/beyondz.rb holds our authenticator. It uses a cooperative check_credentials http api on the platform to check against the main database. It is configured via config.yml for server (string), port (integer), ssl (boolean), and allow_self_signed (boolean) to know where to connect. The default ssl options is production-ready - it will verify certificates and use SSL. For development purposes, you may turn these options off with ssl: false.
+The file lib/beyondz.rb holds our authenticator. It uses a cooperative check_credentials http api on the public site to check against the main database. It is configured via config.yml for server (string), port (integer), ssl (boolean), and allow_self_signed (boolean) to know where to connect. The default ssl options is production-ready - it will verify certificates and use SSL. For development purposes, you may turn these options off with ssl: false.
 
 ## End user flow
 
@@ -14,9 +14,9 @@ The end user should always go to the service they want to use (portal.beyondz.or
 
 user goes to canvas -> canvas sends them to sso -> sso sends back to canvas
 
-On the backend, the SSO server talks to the platform server and the service (canvas) server talks to the SSO server to validate login tickets. This should be SSL secured in production so the sso and canvas servers both need working client certificates, and the sso and platform servers need to be running https.
+On the backend, the SSO server talks to the public site server and the service (canvas) server talks to the SSO server to validate login tickets. This should be SSL secured in production so the sso and canvas servers both need working client certificates, and the sso and public site servers need to be running https.
 
-The user master record is stored on the platform. User records also need to exist on the service - so a bz.org and canvas user need to exist with the same email address for the login to succeed end to end.
+The user master record is stored on the public site. User records also need to exist on the service - so a bz.org and canvas user need to exist with the same email address for the login to succeed end to end.
 
 ## Copyright
 
