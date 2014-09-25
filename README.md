@@ -8,6 +8,14 @@ The public/ folder has image and css assets brought off the main site. These are
 
 The file lib/beyondz.rb holds our authenticator. It uses a cooperative check_credentials http api on the platform to check against the main database. It is configured via config.yml for server (string), port (integer), ssl (boolean), and allow_self_signed (boolean) to know where to connect. The default ssl options is production-ready - it will verify certificates and use SSL. For development purposes, you may turn these options off with ssl: false.
 
+## End user flow
+
+The end user should always go to the service they want to use (portal.beyondz.org for example). The service then redirects them to the single sign on server, with a service parameter telling it to redirect them back once login is complete.
+
+user goes to canvas -> canvas sends them to sso -> sso sends back to canvas
+
+On the backend, the SSO server talks to the platform server and the service (canvas) server talks to the SSO server to validate login tickets. This should be SSL secured in production so the sso and canvas servers both need working client certificates, and the sso and platform servers need to be running https.
+
 ## Copyright
 
 Portions contributed by Matt Zukowski are copyright (c) 2011 Urbacon Ltd.
