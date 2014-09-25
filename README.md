@@ -16,6 +16,8 @@ user goes to canvas -> canvas sends them to sso -> sso sends back to canvas
 
 On the backend, the SSO server talks to the platform server and the service (canvas) server talks to the SSO server to validate login tickets. This should be SSL secured in production so the sso and canvas servers both need working client certificates, and the sso and platform servers need to be running https.
 
+The user master record is stored on the platform. User records also need to exist on the service - so a bz.org and canvas user need to exist with the same email address for the login to succeed end to end.
+
 ## Copyright
 
 Portions contributed by Matt Zukowski are copyright (c) 2011 Urbacon Ltd.
