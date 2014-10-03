@@ -35,7 +35,7 @@
                       <li><a class="" href="//<%= @domain %>/apply">For Students</a></li>
                       <li><a class="" href="//<%= @domain %>/volunteer">For Volunteers</a></li>
                       <li><a class="" href="//<%= @domain %>/partner">For Partners</a></li>
-                      <li>   <a href="//<%= @domain %>/users/sign_in">Log In</a>
+                      <li>   <a href="//<%= @domain %>/users/sign_in_sso">Log In</a>
 
 </li>
                     </ul>
@@ -81,6 +81,7 @@
        
     </div> <!-- .public-container -->
 
+    <% if @google_analytics_account %>
     <script>
 //<![CDATA[
 
@@ -89,13 +90,14 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-48011005-1', 'beyondz.org');
+  ga('create', '<%= @google_analytics_account %>', 'beyondz.org');
   ga('require', 'displayfeatures');
   ga('send', 'pageview');
 
 
 //]]>
 </script>
+    <% end %>
 
 </body>
 
