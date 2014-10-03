@@ -28,6 +28,10 @@ public_site_domain: beyondz.org
 # lost)
 default_service: http://yoursite.com/login/cas
 
+# This is the account number for google analytics. If this option is not
+# here, analytics script will not be added.
+google_analytics_account: UA-48011005-1
+
 ###
 ### WEBrick example
 ###
