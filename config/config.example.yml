@@ -22,6 +22,12 @@
 # It is used by the view to generate links back to the rest of the site on the login form.
 public_site_domain: beyondz.org
 
+# If someone goes directly to the login url, this is where they end up
+# after a successful authentication. (They should never go directly there,
+# but copy/pasting the link could drop necessary form fields and get them
+# lost)
+default_service: http://yoursite.com/login/cas
+
 ###
 ### WEBrick example
 ###
