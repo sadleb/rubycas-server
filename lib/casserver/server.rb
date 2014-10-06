@@ -556,6 +556,8 @@ module CASServer
 
       @message[:message] += t.notice.click_to_continue if @continue_url
 
+      @log_out_of_services = true
+
       @lt = generate_login_ticket
 
       if @gateway && @service
