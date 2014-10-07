@@ -561,7 +561,16 @@ module CASServer
       @lt = generate_login_ticket
 
       if @gateway && @service
-        redirect @service, 303
+        # I'm changing this to render the logout instead of redirecting
+        # because the redirection wouldn't give a chance for the logout
+        # iframe trick to log out of the main site. Since we also have
+        # a default service now in the configuration, it isn't as important
+        # for that to be preserved anyway - it will send them back to the
+        # default service which is good for us too as we can then handle
+        # the redirect based on the user account type automatically.
+
+        # redirect @service, 303
+        render @template_engine, :logout
       elsif @continue_url
         render @template_engine, :logout
       else
