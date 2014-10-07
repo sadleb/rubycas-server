@@ -7,7 +7,8 @@
      Since it is a cross-domain, client side cookie, we had to implement this
      using a helper method on the other side and an iframe on this side.
 -->
-  <iframe style="visibility: hidden; width: 1px; height: 1px;" src="//<%= @domain %>/users/clear_session_cookie"></iframe>
+  <!-- <iframe style="visibility: hidden; width: 1px; height: 1px;" src="//<%= @domain %>/users/clear_session_cookie"></iframe>
+  -->
 <% end %>
 <form method="post" action="<%= @form_action || "login" %>" id="login-form"
       onsubmit="submitbutton = document.getElementById('login-submit'); submitbutton.value='<%= t.notice.please_wait %>'; submitbutton.disabled=true; return true;">
