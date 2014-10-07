@@ -570,7 +570,7 @@ module CASServer
         # the redirect based on the user account type automatically.
 
         # redirect @service, 303
-        render @template_engine, :logout
+        render @template_engine, :login
       elsif @continue_url
         render @template_engine, :logout
       else
