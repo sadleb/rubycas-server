@@ -14,6 +14,18 @@ module CASServer
 
     include CASServer::CAS # CAS protocol helpers
 
+    # We have to disable the iframe restriction to permit auto login
+    # in the Canvas resume module. The risk of this is minor because an
+    # iframe clickjacker wouldn't give the user a chance to enter their
+    # credentials anyway and even if they did, it is still sent to us!
+    #
+    # iframe restrictions are most meaningful on sites where a user is
+    # already logged in and one click can get them to do something nasty.
+    # That's just not the case on the sso server, with the exception of
+    # logout... but the worst that could do is annoy users, there's no
+    # risk of loss of information.
+    set :protection, :except => :frame_options
+
     # Use :public_folder for Sinatra >= 1.3, and :public for older versions.
     def self.use_public_folder?
       Sinatra.const_defined?("VERSION") && Gem::Version.new(Sinatra::VERSION) >= Gem::Version.new("1.3.0")
