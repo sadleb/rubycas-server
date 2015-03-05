@@ -18,7 +18,11 @@ module BeyondZ
         end
       end
 
-      request = Net::HTTP::Get.new("/users/check_credentials?username=#{URI::encode_www_form_component(credentials[:username])}&password=#{URI::encode_www_form_component(credentials[:password])}")
+      request = Net::HTTP::Post.new('/users/check_credentials')
+      request.set_form_data(
+        'username' => credentials[:username],
+        'password' => credentials[:password]
+      )
       response = http.request(request)
 
       return (response.body == "true")
