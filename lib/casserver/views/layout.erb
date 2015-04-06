@@ -40,7 +40,7 @@
     <div class="modal fade" id="notice-modal" tabindex="-1"
       role="dialog" aria-labelledby="notice-modal-label" aria-hidden="true"><div class="modal-dialog modal-sm"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="notice-modal-label">Notice!</h4></div><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div>
     
-    <div class="public-container">
+    <div class="public-container" style="min-height: 0px;">
 
       <div class="header">
         <div class="floating-header">
@@ -51,14 +51,26 @@
                   <a href="//<%= @domain %>/"><img alt="Bz logo 338" src="/bz_logo_338.png" /></a>
                 </div>
                 <div class="navigation-holder no-pad">
-                  <div id="top-navigation" role="navigation">
-                    <ul class="nav navbar-nav">
-                      <li><a class="" href="//<%= @domain %>/">Home</a></li>
-                      <li><a class="" href="//<%= @domain %>/apply">For Students</a></li>
-                      <li><a class="" href="//<%= @domain %>/volunteer">For Volunteers</a></li>
-                      <li><a class="" href="//<%= @domain %>/partner">For Partners</a></li>
-                    </ul>
-                  </div>
+                  <nav class="navbar navbar-default" role="navigation">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" onclick="var e = document.getElementById('navbar-collapse-1'); e.style.display = e.style.display == 'block' ? '' : 'block';">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse top-navigation" id="navbar-collapse-1" style="text-align: right;">
+                      <ul class="nav navbar-nav">
+                        <li><a class="" href="//<%= @domain %>/">Home</a></li>
+                        <li><a class="" href="//<%= @domain %>/apply">For Students</a></li>
+                        <li><a class="" href="//<%= @domain %>/volunteer">For Volunteers</a></li>
+                        <li><a class="" href="//<%= @domain %>/partner">For Partners</a></li>
+                      </ul>
+                    </div>
+                  </nav>
                 </div>
               </section>
             </div> <!-- .section-container -->
