@@ -412,7 +412,7 @@ module CASServer
       @service = clean_service_url(params['service'])
 
       # 2.2.2 (required)
-      @username = params['username']
+      @username = params['username'].downcase # this ensures we always use lowercase for ease of case comparison throughout the system
       @password = params['password']
       @lt = params['lt']
 
