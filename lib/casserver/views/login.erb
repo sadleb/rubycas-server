@@ -8,6 +8,17 @@
         <% if @message %>
            <p><%= escape_html @message[:message] %></p>
         <% end %>
+
+        <% if request.cookies["login_flash"] %>
+          <p><%= escape_html request.cookies["login_flash"] %></p>
+          <%
+            response.set_cookie("login_flash", {
+              :value => '',
+              :expires => Time.now,
+              :domain => '.beyondz.org'
+            })
+          %>
+        <% end %>
         <%= erb(:_login_form, :layout => false) %>
 
        <br />
