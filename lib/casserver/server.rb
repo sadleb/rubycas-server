@@ -292,6 +292,7 @@ module CASServer
       @organization = settings.config[:organization]
       @google_analytics_account = settings.config[:google_analytics_account]
       @domain = settings.config[:public_site_domain]
+      @cookie_domain = settings.config[:cookie_domain]
       @uri_path = settings.config[:uri_path]
       @infoline = settings.config[:infoline]
       @custom_views = settings.config[:custom_views]

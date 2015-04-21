@@ -15,7 +15,7 @@
             response.set_cookie("login_flash", {
               :value => '',
               :expires => Time.now,
-              :domain => '.beyondz.org'
+              :domain => @cookie_domain
             })
           %>
         <% end %>
