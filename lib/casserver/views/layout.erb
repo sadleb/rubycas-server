@@ -11,6 +11,10 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,400italic' rel='stylesheet' type='text/css'>
     <link rel="favorite icon" type="image/png" href="/favicon.ico" />
 
+<link rel="stylesheet" type="text/css" href="/bebraven/TradeGothicNo.20-CondBold.css" media='all'> 
+<link rel='stylesheet' id='sass-css'  href='/bebraven/sass-compiled.css' type='text/css' media='all' />
+<link rel='stylesheet' id='bravenstyle-css'  href='/bebraven/braven.css' type='text/css' media='all' />
+<link rel='stylesheet' id='BravenTheme-css'  href='/bebraven/style.css' type='text/css' media='all' />
 
     <% if @google_analytics_account %>
     <script>
@@ -42,74 +46,110 @@
     
     <div class="public-container" style="min-height: 0px;">
 
-      <div class="header">
-        <div class="floating-header">
-          <div class="plank">
-            <div class="section-container">
-              <section id="banner" role="banner">
-                <div class="top-left no-pad">
-                  <a href="//<%= @domain %>/"><img alt="Bz logo 338" src="/bz_logo_338.png" /></a>
-                </div>
-                <div class="navigation-holder no-pad">
-                  <nav class="navbar navbar-default" role="navigation">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                      <button type="button" class="navbar-toggle" onclick="var e = document.getElementById('navbar-collapse-1'); e.style.display = e.style.display == 'block' ? '' : 'block';">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
-                    </div>
 
-                    <div class="collapse navbar-collapse top-navigation" id="navbar-collapse-1" style="text-align: right;">
-                      <ul class="nav navbar-nav">
-                        <li><a class="" href="//<%= @domain %>/">Home</a></li>
-                        <li><a class="" href="//<%= @domain %>/apply">For Students</a></li>
-                        <li><a class="" href="//<%= @domain %>/volunteer">For Volunteers</a></li>
-                        <li><a class="" href="//<%= @domain %>/partner">For Partners</a></li>
-                      </ul>
-                    </div>
-                  </nav>
-                </div>
-              </section>
-            </div> <!-- .section-container -->
-          </div>
-        </div> <!-- .floating-header -->
-        <!-- this acts to fill the space when the floating header is in fixed position up top -->
-        <!-- when it moves down, this spacer assumes its size, keeping the rest of the page content
-             from jumping around, confusing the user as to where they were looking -->
-        <div class="floating-header-spacer"></div>
-      </div> <!-- .header -->
+
+
+<div class="upperheader_red">
+    <div class="container">
+    <h4 class="tophdr-content">Join Our Mailing List » <span style="margin-left:2px; margin-right:2px;">
+    <span class="social">
+     <a class="mail_icon" target="_blank" href="#mailinglist"></a>
+   <a class="facebook_icon" target="_blank" href="https://www.facebook.com/BeBraven"></a>
+   <a class="ig_icon" target="_blank" href="https://instagram.com/bebraven/"></a>
+<a class="twitter_icon" target="_blank" href="https://twitter.com/bebraven"></a>
+</span> </span>
+</h4>
+    </div>
+    </div>
+
+
+<div id="topheader">
+    
+   <div id="blogo">
+   <a href="http://bebraven.org"><img src="/bebraven/braven_logo.png"></a>
+   </div>
+		
+
+			<div id="navigation" class="navigationbar">
+				<nav id="site-navigation" class="navigation main-navigation" role="navigation">
+				
+		<div class="menu-main-navigation-container"><ul id="primary-menu" class="nav-menu"><li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-95"><a href="http://bebraven.org/become-a-fellow/">Become A Fellow</a>
+<ul class="sub-menu">
+	<li id="menu-item-158" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158"><a href="http://bebraven.org/become-a-fellow/bay-area/">Bay Area</a></li>
+	<li id="menu-item-157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-157"><a href="http://bebraven.org/become-a-fellow/nj-nyc-area/">NJ/NYC Area</a></li>
+	<li id="menu-item-753" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-753"><a href="http://bebraven.org/the-fellow-experience/">The Fellow Experience</a></li>
+	<li id="menu-item-827" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-827"><a href="http://bebraven.org/apply-now/">Apply</a></li>
+	<li id="menu-item-847" class="beyondz_menu_item menu-item menu-item-type-custom menu-item-object-custom menu-item-847"><a href="https://www.beyondz.org/signup/new?applicant_type=undergrad_student" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.beyondz.org/signup/new?applicant_type=undergrad_student', 'Apply');">Apply</a></li>
+</ul>
+</li>
+<li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-96"><a href="http://bebraven.org/volunteer-as-a-coach/">Volunteer As A Coach</a>
+<ul class="sub-menu">
+	<li id="menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="http://bebraven.org/coaching-commitment-details/">Coaching Commitment Details</a></li>
+	<li id="menu-item-828" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-828"><a href="http://bebraven.org/apply-now/">Apply</a></li>
+	<li id="menu-item-850" class="beyondz_menu_item menu-item menu-item-type-custom menu-item-object-custom menu-item-850"><a href="https://www.beyondz.org/signup/new?applicant_type=volunteer" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.beyondz.org/signup/new?applicant_type=volunteer', 'Apply');">Apply</a></li>
+</ul>
+</li>
+<li id="menu-item-100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-100"><a href="http://bebraven.org/partner-with-us/">Partner With Us</a></li>
+<li id="menu-item-101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101"><a href="http://bebraven.org/blog/">Blog</a></li>
+<li id="menu-item-102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-102"><a href="http://bebraven.org/about-us/">About Us</a>
+<ul class="sub-menu">
+	<li id="menu-item-103" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-103"><a href="http://bebraven.org/our-team/">Our Team</a></li>
+	<li id="menu-item-451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-451"><a href="http://bebraven.org/about-us/partners-supporters/">Partners &amp; Supporters</a></li>
+	<li id="menu-item-104" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-104"><a href="http://bebraven.org/about-us/work-at-braven/">Our Core Values</a></li>
+</ul>
+</li>
+<li id="menu-item-105" class="apply_top_btn menu-item menu-item-type-post_type menu-item-object-page menu-item-105"><a href="http://bebraven.org/apply-now/">Apply</a></li>
+<li id="menu-item-450" class="donate_top_btn menu-item menu-item-type-custom menu-item-object-custom menu-item-450"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=VFUYARJB2QRXC" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=VFUYARJB2QRXC', 'Donate');" target="_blank">Donate</a></li>
+</ul></div>					
+				</nav><!-- #site-navigation -->
+                
+            </div><!-- #END Navigation -->    
+            
+            	<a class="menuicon" href="#menu"></a>
+                
+               
+
+			</div>
+
+      
 
       <main role="main">
         <%= yield %>
       </main>
 
-      <div id="footer" class="plank">
-  <div class="section-container">
-    <section>
-      <div class="col-sm-2">
-        <a href="//<%= @domain %>/"><img alt="Bz logo 338" src="/bz_logo_338.png" /></a>
-      </div>
-      <div class="col-sm-5">
-        <a href="//<%= @domain %>/">Home</a><br />
-        <a href="//<%= @domain %>/apply">Apply</a><br />
-        <a href="//<%= @domain %>/volunteer">Volunteer</a><br />
-        <a href="//<%= @domain %>/partner">Partner</a><br />
-           <a href="//<%= @domain %>/users/sign_in">Log In</a>
 
-<br />
-        <a href="//<%= @domain %>/jobs">Jobs</a><br />
-        Contact us: <a href="mailto:info@beyondz.org">info@beyondz.org</a>
-      </div>
-      <div class="col-sm-5 text-right">
-        <p>&copy; Beyond Z 2014</p>
-      </div>
-    </section>
-  </div>
-</div>
-       
+
+
+
+<div id="footer_bottom" class="braven_section hide-on-iframe">
+			<div id="footer_menu">
+		
+			<div id="nav_menu-2" class="footer_widget widget_nav_menu braven-widget-order-0 braven-widget-first"><h3 class="footer-title">LEARN MORE</h3><div class="menu-footer-menu-col-one-container"><ul id="menu-footer-menu-col-one" class="menu"><li id="menu-item-107" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107"><a href="http://bebraven.org/become-a-fellow/">Braven Fellows</a></li>
+<li id="menu-item-108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108"><a href="http://bebraven.org/volunteer-as-a-coach/">Leadership Coaches</a></li>
+<li id="menu-item-109" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-109"><a href="http://bebraven.org/partner-with-us/">Partners</a></li>
+</ul></div></div><div id="nav_menu-3" class="footer_widget widget_nav_menu braven-widget-order-1"><h3 class="footer-title">TAKE ACTION</h3><div class="menu-footer-menu-col-two-container"><ul id="menu-footer-menu-col-two" class="menu"><li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110"><a href="http://bebraven.org/apply-now/">Apply</a></li>
+<li id="menu-item-642" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-642"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=VFUYARJB2QRXC" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=VFUYARJB2QRXC', 'Donate');" target="_blank">Donate</a></li>
+<li id="menu-item-112" class="info_footer_link menu-item menu-item-type-custom menu-item-object-custom menu-item-112"><a href="mailto:info@bebraven.org">info@bebraven.org</a></li>
+</ul></div></div><div id="nav_menu-4" class="footer_widget widget_nav_menu braven-widget-order-2"><h3 class="footer-title">ABOUT US</h3><div class="menu-footer-menu-col-three-container"><ul id="menu-footer-menu-col-three" class="menu"><li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113"><a href="http://bebraven.org/about-us/">Who We Are</a></li>
+<li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114"><a href="http://bebraven.org/our-team/">Our Team</a></li>
+<li id="menu-item-115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-115"><a href="http://bebraven.org/about-us/partners-supporters/">Partners &amp; Supporters</a></li>
+</ul></div></div><div id="nav_menu-5" class="footer_widget widget_nav_menu braven-widget-order-3 braven-widget-last"><h3 class="footer-title">CONNECT</h3><div class="menu-footer-menu-col-four-container"><ul id="menu-footer-menu-col-four" class="menu"><li id="menu-item-117" class="blog_fico menu-item menu-item-type-post_type menu-item-object-page menu-item-117"><a href="http://bebraven.org/blog/">Blog</a></li>
+<li id="menu-item-118" class="fb_fico menu-item menu-item-type-custom menu-item-object-custom menu-item-118"><a href="https://www.facebook.com/bebraven" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.facebook.com/bebraven', 'Facebook');">Facebook</a></li>
+<li id="menu-item-119" class="tw_fico menu-item menu-item-type-custom menu-item-object-custom menu-item-119"><a href="https://twitter.com/bebraven" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://twitter.com/bebraven', 'Twitter');">Twitter</a></li>
+</ul></div></div>            
+            <div class="clear"></div>
+	
+	</div><!-- #secondary -->
+
+			<div class="braven-cc">
+				<div class="footer_copyright">			<div class="textwidget">Braven is a 501 (c)(3) • ©2015 • <a href="/privacy">Privacy Policy</a> • <a href="/terms-of-use">Terms of Use</a> • 
+made with<span class="heart" style="display: inline;"> <img style="display: inline;" src="/bebraven/images/2764.png" width="16" height="16" alt="❤" draggable="false" class="emoji"> </span>in America</div>
+		</div>	
+			</div><!-- .site-info -->
+		</div>
+
+
+
     </div> <!-- .public-container -->
 </body>
 
