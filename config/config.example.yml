@@ -20,14 +20,14 @@
 
 # This is the domain of the main public website
 # It is used by the view to generate links back to the rest of the site on the login form.
-public_site_domain: beyondz.org
+public_site_domain: join.bebraven.org
 
 # This is used to clear the login_message cookie after it is set by
 # a flash call on the Rails end. So it says like flash message saying
 # "your password is now reset". We read that cookie, display the message,
 # then clear the cookie so it isn't displayed twice. To clear the cookie,
 # we need to know the matching settings. cookie_domain is the configurable one.
-cookie_domain: .beyondz.org # this should be the *top* domain - so even for staging, it should be .beyondz.org still
+cookie_domain: .join.bebraven.org # this should be the *top* domain - so even for staging, it should be .join.bebraven.org still
 
 # If someone goes directly to the login url, this is where they end up
 # after a successful authentication. (They should never go directly there,
@@ -202,7 +202,7 @@ database:
 authenticator:
   class: BeyondZ::CustomAuthenticator
   source: beyondz.rb
-  server: beyondz.org
+  server: join.bebraven.org
   # We can override ssl, port, and self signed options for dev
   # The default is to use SSL.
   # ssl: false
