@@ -1395,6 +1395,16 @@ li > ul {
 	main > .plank .section-container > section > div.col-md-4 {
 		padding-top: 4px;
 	}
+
+	main input.button-primary {
+		width: 100%;
+	}
+
+	/* hide everything under it too because we want to keep it simple on phone,
+	   they can always use the hot dog menu */
+	form ~ * {
+		display: none;
+	}
 }
 
 @media print {
