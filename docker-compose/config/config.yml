@@ -213,8 +213,8 @@ authenticator:
   server: join.docker
   # We can override ssl, port, and self signed options for dev
   # The default is to use SSL.
-  # ssl: false
-  # port: 80
+  ssl: false
+  port: 80
   # allow_self_signed: true
 
 
