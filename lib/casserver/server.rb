@@ -528,7 +528,10 @@ module CASServer
       # "logout" page, we take the user back to the login page with a "you have been logged out"
       # message, allowing for an opportunity to immediately log back in. This makes it
       # easier for the user to log out and log in as someone else.
-      @service = clean_service_url(params['service'] || params['destination'])
+
+      # BZ modification: always use default service so logout/login goes back to our main
+      # site (which can redirect) regardless of where they came from
+      @service = clean_service_url(settings.config[:default_service]) # params['service'] || params['destination'])
       @continue_url = params['url']
 
       @gateway = params['gateway'] == 'true' || params['gateway'] == '1'
