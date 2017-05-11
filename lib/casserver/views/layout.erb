@@ -127,6 +127,36 @@ made with<span class="heart" style="display: inline;"> <img style="display: inli
 			</div><!-- .site-info -->
 		</div>
     </div> <!-- .public-container -->
+
+
+
+
+<!-- all this crap is here just for the  mobile hotdog menu -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="//join.bebraven.org/bebraven/jquery.mmenu.min.all.js"></script>
+<script>
+$(document).ready(function($) {
+$('nav#menu').mmenu({
+  navbar: {
+    title: "Braven"
+  }
+  });
+  
+     var API = $("#menu").data( "mmenu" );
+
+      $("#close-mobile-btn").click(function() {
+         API.close();
+      });
+			});
+	
+</script>
+    
+<!-- done -->
+
+
+
 </body>
 
 
