@@ -4,13 +4,13 @@
 
 The file lib/casserver/views/layout.erb has the login layout html. This is based on the main site, but it is modified, so must be maintained separately.
 
-The public/ folder has image and css assets brought off the main site. These are simply downloaded from the production site and renamed - to do this, load the beyondz.org site in your browser, view source and find the link rel=styleshet near the top. Download that file and save it in here as public/beyondz.css. They do NOT need to be maintained separately at this time. Currently required are the logo, favicon, and stylesheet.
+The public/ folder has image and css assets brought off the main site. These are simply downloaded from the production site and renamed - to do this, load the join.bebraven.org site in your browser, view source and find the link rel=styleshet near the top. Download that file and save it in here as public/beyondz.css. They do NOT need to be maintained separately at this time. Currently required are the logo, favicon, and stylesheet.
 
 The file lib/beyondz.rb holds our authenticator. It uses a cooperative check_credentials http api on the public site to check against the main database. It is configured via config.yml for server (string), port (integer), ssl (boolean), and allow_self_signed (boolean) to know where to connect. The default ssl options is production-ready - it will verify certificates and use SSL. For development purposes, you may turn these options off with ssl: false.
 
 ## End user flow
 
-The end user should always go to the service they want to use (portal.beyondz.org for example). The service then redirects them to the single sign on server, with a service parameter telling it to redirect them back once login is complete.
+The end user should always go to the service they want to use (portal.bebraven.org for example). The service then redirects them to the single sign on server, with a service parameter telling it to redirect them back once login is complete.
 
 user goes to canvas -> canvas sends them to sso -> sso sends back to canvas
 

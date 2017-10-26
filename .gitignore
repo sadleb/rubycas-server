@@ -1,5 +1,5 @@
 .svn
-config.yml
+/config/config.yml
 *.db
 *.sqlite3
 *.swp
@@ -19,3 +19,4 @@ resources/dev
 .vagrant
 Vagrantfile
 Gemfile.lock
+vendor/*

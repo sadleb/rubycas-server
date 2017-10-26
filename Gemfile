@@ -1,8 +1,8 @@
 source "http://rubygems.org"
 gemspec
 
-gem "mysql2"
-gem "activerecord-mysql-adapter"
+#gem "mysql2"
+#gem "activerecord-mysql-adapter"
 gem "pg"
 
 # Gems for authenticators

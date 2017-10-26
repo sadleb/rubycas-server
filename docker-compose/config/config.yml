@@ -20,24 +20,24 @@
 
 # This is the domain of the main public website
 # It is used by the view to generate links back to the rest of the site on the login form.
-public_site_domain: join.bebraven.org
+public_site_domain: join.docker
 
 # This is used to clear the login_message cookie after it is set by
 # a flash call on the Rails end. So it says like flash message saying
 # "your password is now reset". We read that cookie, display the message,
 # then clear the cookie so it isn't displayed twice. To clear the cookie,
 # we need to know the matching settings. cookie_domain is the configurable one.
-cookie_domain: .join.bebraven.org # this should be the *top* domain - so even for staging, it should be .join.bebraven.org still
+cookie_domain: .docker # this should be the *top* domain - so even for staging, it should be .join.bebraven.org still
 
 # If someone goes directly to the login url, this is where they end up
 # after a successful authentication. (They should never go directly there,
 # but copy/pasting the link could drop necessary form fields and get them
 # lost)
-default_service: http://yoursite.com/login/cas
+default_service: http://canvas.docker/login/cas
 
 # This is the account number for google analytics. If this option is not
 # here, analytics script will not be added.
-google_analytics_account: UA-48011005-1
+#google_analytics_account: UA-48011005-1
 
 ###
 ### WEBrick example
@@ -49,8 +49,8 @@ google_analytics_account: UA-48011005-1
 # or Passenger.
 
 server: webrick
-port: 443
-ssl_cert: /path/to/your/ssl.pem
+port: 3002
+#ssl_cert: /path/to/your/ssl.pem
 
 # If your private key is in a separate file from the cert
 
@@ -119,12 +119,20 @@ ssl_cert: /path/to/your/ssl.pem
 #   i.e. `mysqladmin -u root create casserver`)
 
 database:
-  adapter: mysql
+  adapter: postgresql
   database: casserver
-  username: root
+  username: postgres
   password:
-  host: localhost
+  host: ssodb
   reconnect: true
+
+#database:
+#  adapter: mysql
+#  database: casserver
+#  username: root
+#  password:
+#  host: localhost
+#  reconnect: true
 
 # IMPORTANT! By default, the server can handle up to ~5 concurrent requests
 # (without queuing). You can increase this by setting the database connection
@@ -202,11 +210,11 @@ database:
 authenticator:
   class: BeyondZ::CustomAuthenticator
   source: beyondz.rb
-  server: join.bebraven.org
+  server: join.docker
   # We can override ssl, port, and self signed options for dev
   # The default is to use SSL.
-  # ssl: false
-  # port: 80
+  ssl: false
+  port: 80
   # allow_self_signed: true
 
 
@@ -457,7 +465,7 @@ authenticator:
 theme: simple
 
 # The name of your company/organization. This will show up on the login page.
-organization: CAS
+organization: Braven Docker SSO
 
 # A short bit of text that shows up on the login page. You can make this blank
 # if you prefer to have no extra text shown at the bottom of the login box.
@@ -501,7 +509,7 @@ infoline: Powered by <a href="http://rubycas.github.com">RubyCAS-Server</a>
 
 log:
   file: /var/log/casserver.log
-  level: INFO
+  level: DEBUG
 
 
 # If you want full database logging, uncomment this next section.
