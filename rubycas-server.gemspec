@@ -26,13 +26,14 @@ $gemspec = Gem::Specification.new do |s|
   s.has_rdoc = true
   s.post_install_message = "For more information on RubyCAS-Server, see http://rubycas.github.com"
 
+  s.add_dependency("pg", "0.11.0")
   s.add_dependency("activerecord", ">= 2.3.12", "< 4.0")
   s.add_dependency("activesupport", ">= 2.3.12", "< 4.0")
   s.add_dependency("sinatra", "~> 1.0")
   s.add_dependency("sinatra-r18n", '~> 1.1.0')
   s.add_dependency("crypt-isaac", "~> 0.9.1")
 
-  s.add_development_dependency("rack-test")
+  s.add_development_dependency("rack-test",'0.6.3')
   s.add_development_dependency("capybara", '1.1.2')
   s.add_development_dependency("rspec")
   s.add_development_dependency("rspec-core")
@@ -42,7 +43,7 @@ $gemspec = Gem::Specification.new do |s|
   s.add_development_dependency("guard", "~> 1.4.0")
   s.add_development_dependency("guard-rspec", "2.0.0")
   s.add_development_dependency("webmock", "~> 1.8")
-  s.add_development_dependency("nokogiri", "~> 1.3")
+  s.add_development_dependency("nokogiri", "1.3.3")
 
   # pull in os specific FS monitoring lib for guard
   case RUBY_PLATFORM
