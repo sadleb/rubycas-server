@@ -1,0 +1,31 @@
+version: "3"
+services:
+
+  ssoweb:
+    build:
+      context: .
+    command: /app/docker-compose/scripts/run.sh
+    ports:
+      - "3002:3002"
+    networks:
+      - frontend
+    depends_on:
+      - ssodb
+    environment:
+      RACK_ENV: development
+      VIRTUAL_HOST: sso.docker
+
+  ssodb:
+    image: postgres:9.3
+    volumes:
+      - sso-db:/var/lib/postgresql/data
+    networks:
+      - frontend
+    environment:
+      POSTGRES_DB: casserver
+
+networks:
+  frontend:
+
+volumes:
+  sso-db:
