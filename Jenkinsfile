@@ -3,13 +3,11 @@ pipeline {
   triggers { pollSCM('* * * * *') }
   stages {
     stage('build docker image') {
-      when { changeRequest() }
       steps {
         sh 'sudo docker build -t ssoweb .'
       }
     }
     stage('ecr push') {
-      when { changeRequest() }
       steps {
         sh '''eval sudo $(aws ecr get-login --no-include-email --region us-west-2)
 sudo docker tag ssoweb 958491237157.dkr.ecr.us-west-2.amazonaws.com/ssoweb:latest
