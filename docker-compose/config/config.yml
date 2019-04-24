@@ -123,7 +123,7 @@ database:
   database: casserver
   username: postgres
   password:
-  host: ssodb
+  host: ssodb.default.svc.cluster.local
   reconnect: true
 
 #database:
