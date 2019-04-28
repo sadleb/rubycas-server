@@ -9,6 +9,7 @@ VERSION=1.0.0
 
 # Tag Github repo with version prefix 
 prefix=1.0
+git ls-remote --tags origin | cut -f 3 -d \'/\' | grep "^${prefix}" | sort -t. -k 3,3nr | head -1
 latest_tag=$(git ls-remote --tags origin | cut -f 3 -d \'/\' | grep "^${prefix}" | sort -t. -k 3,3nr | head -1)
 if [ -z ${latest_tag} ]; then
   VERSION_TAG="${VERSION}"
