@@ -1,14 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('build docker image') {
+    stage('build docker image and tag') {
       steps {
-        sh 'sudo docker build -t ssoweb .'
-      }
-    }
-    stage('git tag') {
-      steps {
-        sh '''VERSION=1.0.0
+        sh '''sudo docker build -t ssoweb .
+
+VERSION=1.0.0
 
 # Tag Github repo with version prefix 
 prefix=1.0
@@ -20,6 +17,11 @@ else
 fi
 git tag ${VERSION_TAG}
 git push --tags'''
+      }
+    }
+    stage('git tag') {
+      steps {
+        sh 'ls'
       }
     }
     stage('ecr push') {
