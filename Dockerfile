@@ -10,7 +10,7 @@ RUN sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt
 RUN apt-get -o Acquire::Check-Valid-Until=false update -qq && apt-get install -y build-essential libpq-dev
 
 # The rubycas Gemfile / gemspec doesn't specify a rails version since we use Apache Passenger modrails to run it in prod.  
-# Need this installed in the container to run the dev version.
+# Need this installed in the container to run the dev version
 #RUN gem install rails -v 3.2
 
 RUN mkdir /app
