@@ -1,0 +1,12 @@
+#!/bin/bash
+
+test_result=$(curl -s -o /dev/null -w "%{http_code}" http://bravenpocint.com/login)
+
+echo $test_result
+if [ $test_result == 200 ]
+then
+  echo "success"
+else
+  echo "fail"
+  exit 1
+fi
