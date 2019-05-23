@@ -531,7 +531,7 @@ module CASServer
 
       # BZ modification: always use default service so logout/login goes back to our main
       # site (which can redirect) regardless of where they came from
-      @service = clean_service_url(settings.config[:default_service]) # params['service'] || params['destination'])
+      @service = clean_service_url(params['service'] || settings.config[:default_service]) # params['service'] || params['destination'])
       @continue_url = params['url']
 
       @gateway = params['gateway'] == 'true' || params['gateway'] == '1'
