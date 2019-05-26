@@ -120,10 +120,10 @@ port: 3002
 
 database:
   adapter: postgresql
-  database: <%= ENV.fetch("DATABASE_NAME") %>
-  username: <%= ENV.fetch("DATABASE_USER") %>
-  password: <%= ENV.fetch("DATABASE_PASSWORD") %>
-  host: <%= ENV.fetch("DATABASE_URL") %>
+  database: ${DATABASE_NAME}
+  username: ${DATABASE_USER}
+  password: ${DATABASE_PASSWORD}
+  host: ${DATABASE_URL}
   reconnect: true
 
 #database:
