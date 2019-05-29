@@ -60,8 +60,11 @@ See the LICENSE file bundled with the official RubyCAS-Server distribution for d
 to run this on docker need to expose below variables as env variabels
 
 DATABASE_NAME
+
 DATABASE_USER
+
 DATABASE_PASSWORD
+
 DATABASE_URL
 
 https://github.com/geethaka/rubycas-server/blob/master/docker-compose/scripts/run.sh script will pass those variables in to the yaml app config file
