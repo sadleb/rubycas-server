@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 60 
+
 test_result=$(curl -s -o /dev/null -w "%{http_code}" http://rubycas.k8.bebraven.org/login)
 
 echo $test_result
