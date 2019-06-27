@@ -33,7 +33,7 @@ fluxctl release --k8s-fwd-ns=flux --workload=dev:helmrelease/rubycas-dev --names
     }
     stage('deploy to prod') {
       steps {
-        sh 'deploy to prod'
+        sh 'echo "this will deploy to next env"'
       }
     }
   }
