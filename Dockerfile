@@ -1,5 +1,5 @@
 # We currently use Ruby 1.9.3 in prod, but bundle install is failing with that in dev.
-# We also can't use the newest ruby because it broke support for the syck gem in v2.2.
+# We also can't use the newest ruby because it broke support for the syck gem in v2.2
 FROM ruby:2.1
 
 #fix for jessie repo eol issues
