@@ -6,6 +6,30 @@ pipeline {
         sh 'sudo docker build -t ssoweb .'
       }
     }
+    stage('start env') {
+      when {
+                changeRequest()
+            }
+      steps {
+        sh 'docker-compose up -d'
+      }
+    }
+    stage('run unit test') {
+      when {
+                changeRequest()
+            }
+      steps {
+        sh './unit_test.sh'
+      }
+    }
+    stage('destroy env') {
+      when {
+                changeRequest()
+            }
+      steps {
+        sh 'docker-compose down -v'
+      }
+    }
     stage('ecr push') {
       when {
                 branch 'master'
