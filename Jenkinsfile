@@ -11,7 +11,8 @@ pipeline {
                 changeRequest()
             }
       steps {
-        sh 'docker-compose up -d'
+        sh '''export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+        docker-compose up -d'''
       }
     }
     stage('run unit test') {
@@ -27,7 +28,8 @@ pipeline {
                 changeRequest()
             }
       steps {
-        sh 'docker-compose down -v'
+        sh '''export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+        docker-compose down -v'''
       }
     }
     stage('ecr push') {
