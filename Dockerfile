@@ -1,5 +1,5 @@
 # We currently use Ruby 1.9.3 in prod, but bundle install is failing with that in dev.
-# We also can't use the newest ruby because it broke support for the syck gem in v2.2
+# We also can't use the newest ruby because it broke support for the syck gem in v2.2.
 FROM ruby:2.1
 
 #fix for jessie repo eol issues
@@ -19,7 +19,8 @@ ADD Gemfile /app/Gemfile
 ADD rubycas-server.gemspec /app/rubycas-server.gemspec
 RUN bundle install
 
-# Do this after bundle install b/c if we do it before then changing any files 
+# Do this after bundle install b/c if we do it before then changing any files
+# causes bundle install to be invalidated and run again on the next build 
 ADD . /app
 
 

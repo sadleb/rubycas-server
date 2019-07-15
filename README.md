@@ -69,7 +69,7 @@ DATABASE_URL
 
 default values are set in docker-compose.yml file
 
-https://github.com/geethaka/rubycas-server/blob/master/docker-compose/scripts/run.sh script will pass those variables in to the yaml app config file
+docker-compose/scripts/run.sh script will pass those variables in to the yaml app config file
 
 to start in local
 
@@ -77,7 +77,7 @@ to start in local
 
 application will be availabe on http://localhost:3002
 
-to change application config update https://github.com/geethaka/rubycas-server/blob/master/docker-compose/config/config.yml with config you need and 
+to change application config update docker-compose/config/config.yml with config you need and 
 
 `docker-compose down -v`
  `docker-compose up -d`

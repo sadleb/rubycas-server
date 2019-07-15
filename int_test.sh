@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# added a sleep since kubernets deployment can take time to propogate
 sleep 60 
 
 test_result=$(curl -s -o /dev/null -w "%{http_code}" http://rubycas.k8.bebraven.org/login)
