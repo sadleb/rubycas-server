@@ -120,10 +120,10 @@ port: 3002
 
 database:
   adapter: postgresql
-  database: casserver
-  username: postgres
-  password:
-  host: ssodb
+  database: ${DATABASE_NAME}
+  username: ${DATABASE_USER}
+  password: ${DATABASE_PASSWORD}
+  host: ${DATABASE_URL}
   reconnect: true
 
 #database:
@@ -210,12 +210,12 @@ database:
 authenticator:
   class: BeyondZ::CustomAuthenticator
   source: beyondz.rb
-  server: join.docker
+  server: join.k8.bebraven.org
   # We can override ssl, port, and self signed options for dev
   # The default is to use SSL.
-  ssl: false
-  port: 80
-  # allow_self_signed: true
+  ssl: true
+  port: 443
+  allow_self_signed: true
 
 
 

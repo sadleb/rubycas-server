@@ -54,3 +54,31 @@ If you have questions, try the [RubyCAS Google Group](https://groups.google.com/
 
 RubyCAS-Server is licensed for use under the terms of the MIT License.
 See the LICENSE file bundled with the official RubyCAS-Server distribution for details.
+
+## running in local using docker
+
+to run this on docker need to expose below variables as env variabels
+
+DATABASE_NAME
+
+DATABASE_USER
+
+DATABASE_PASSWORD
+
+DATABASE_URL
+
+default values are set in docker-compose.yml file
+
+docker-compose/scripts/run.sh script will pass those variables in to the yaml app config file
+
+to start in local
+
+`docker-compose up -d`
+
+application will be availabe on http://localhost:3002
+
+to change application config update docker-compose/config/config.yml with config you need and 
+
+`docker-compose down -v`
+ `docker-compose up -d`
+
