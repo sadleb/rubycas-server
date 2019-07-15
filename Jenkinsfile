@@ -1,5 +1,8 @@
 pipeline {
   agent any
+   environment {
+        AWS_ACCOUNT_ID     = credentials('jenkins-aws-account-id')
+    }
   stages {
     stage('build docker image and tag') {
       steps {
@@ -40,8 +43,8 @@ pipeline {
         sh '''eval sudo $(aws ecr get-login --no-include-email --region us-west-2)
 latest_tag=$(aws ecr describe-images --repository-name ssoweb --region us-west-2  --output text --query \'sort_by(imageDetails,& imagePushedAt)[*].imageTags[*]\' | tr \'\\t\' \'\\n\'  | tail -1)
 VERSION_TAG="${latest_tag%.*}.$((${latest_tag##*.}+1))"
-sudo docker tag ssoweb 958491237157.dkr.ecr.us-west-2.amazonaws.com/ssoweb:${VERSION_TAG}
-sudo docker push 958491237157.dkr.ecr.us-west-2.amazonaws.com/ssoweb:${VERSION_TAG}'''
+sudo docker tag ssoweb $AWS_ACCOUNT_ID.dkr.ecr.us-west-2.amazonaws.com/ssoweb:${VERSION_TAG}
+sudo docker push $AWS_ACCOUNT_ID.dkr.ecr.us-west-2.amazonaws.com/ssoweb:${VERSION_TAG}'''
       }
     }
     stage('deploy to stg') {
@@ -54,7 +57,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
 eval sudo $(aws ecr get-login --no-include-email --region us-west-2)
 latest_tag=$(aws ecr describe-images --repository-name ssoweb --region us-west-2  --output text --query \'sort_by(imageDetails,& imagePushedAt)[*].imageTags[*]\' | tr \'\\t\' \'\\n\'  | tail -1)
 sleep 60
-fluxctl release --k8s-fwd-ns=flux --workload=dev:helmrelease/rubycas-dev --namespace=dev --update-image=958491237157.dkr.ecr.us-west-2.amazonaws.com/ssoweb:${latest_tag}
+fluxctl release --k8s-fwd-ns=flux --workload=dev:helmrelease/rubycas-dev --namespace=dev --update-image=$AWS_ACCOUNT_ID.dkr.ecr.us-west-2.amazonaws.com/ssoweb:${latest_tag}
 '''
       }
     }
