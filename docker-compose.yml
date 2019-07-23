@@ -9,6 +9,7 @@ services:
       - "3002:3002"
     networks:
       - frontend
+      - beyondz-platform_frontend
     depends_on:
       - ssodb
     environment:
@@ -30,6 +31,8 @@ services:
 
 networks:
   frontend:
+  beyondz-platform_frontend:
+    external: true
 
 volumes:
   sso-db:
