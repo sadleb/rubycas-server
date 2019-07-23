@@ -54,3 +54,51 @@ If you have questions, try the [RubyCAS Google Group](https://groups.google.com/
 
 RubyCAS-Server is licensed for use under the terms of the MIT License.
 See the LICENSE file bundled with the official RubyCAS-Server distribution for details.
+
+## Running in a local development environment using Docker
+
+Edit `/etc/hosts` and add these values.
+```Shell
+127.0.0.1     joinweb
+127.0.0.1     ssoweb
+127.0.0.1     canvasweb
+```
+Bring up the Join server locally b/c this Docker container is configured
+to point at it for the user database / credentials. Do this by following
+the instructions [here](https://github.com/beyond-z/beyondz-platform#docker-setup)
+
+Then, from your application root just run:
+```Shell
+docker-compose up -d
+```
+When complete, the app will be available at: `http://ssoweb:3002`
+
+Note: the build will have a couple errors you can ignore. They don't
+seem to impact the functioning of the app. Just ignore:
+```Shell
+fatal: Not a git repository (or any of the parent directories): .git
+app/bin/rubycas-server maybe `gem pristine rubycas-server` will fix it?
+```
+
+Some things to keep in mind with Docker:
+* If there are build errors, run `docker-compose logs` to see what they
+  are.
+* The environment variables come from `docker-compose.yml` They are
+  injected into the container using `envsubst` in the
+`./docker-compose/scripts/docker_compose_run.sh` script.
+* If you change environment variables, rebuild to have them picked up by
+  running `./docker-compose/scripts/rebuild.sh
+* There are more scripts in `./docker-compose/scripts` to help you work
+  with the container(s).
+* If you change a file on the host (aka outside the container) it
+does not take effect inside the container. This application is rarely
+changed, so we don't mount a volume to allow files to be seamlessly
+changed inside and outside. To have a change take effect run
+`docker-compose/scripts/rebuild.sh`
+* Lastly, and this is IMPORTANT, the version of Ruby that we run on
+  production is 1.9.3. However, getting Docker building with that
+version has proven troublesome, so the Docker dev env runs Ruby 2.1. For
+that reason, DO NOT check-in the `Gemfile.lock` built on your local dev
+env or the update the `rubycas-server.gemspec`. If we have to rebuild
+gems on prod, we'll have to bite the bullet and upgrade the server (or
+consolidate the SSO server into the Join server
