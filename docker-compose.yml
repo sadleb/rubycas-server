@@ -4,16 +4,20 @@ services:
   ssoweb:
     build:
       context: .
-    command: /app/docker-compose/scripts/run.sh
+    command: /app/docker-compose/scripts/docker_compose_run.sh
     ports:
       - "3002:3002"
     networks:
       - frontend
+      - beyondz-platform_frontend
     depends_on:
       - ssodb
     environment:
       RACK_ENV: development
-      VIRTUAL_HOST: sso.docker
+      DATABASE_NAME: casserver
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD:
+      DATABASE_HOST: ssodb
 
   ssodb:
     image: postgres:9.3
@@ -26,6 +30,8 @@ services:
 
 networks:
   frontend:
+  beyondz-platform_frontend:
+    external: true
 
 volumes:
   sso-db:

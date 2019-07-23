@@ -20,20 +20,20 @@
 
 # This is the domain of the main public website
 # It is used by the view to generate links back to the rest of the site on the login form.
-public_site_domain: join.docker
+public_site_domain: joinweb
 
 # This is used to clear the login_message cookie after it is set by
 # a flash call on the Rails end. So it says like flash message saying
 # "your password is now reset". We read that cookie, display the message,
 # then clear the cookie so it isn't displayed twice. To clear the cookie,
 # we need to know the matching settings. cookie_domain is the configurable one.
-cookie_domain: .docker # this should be the *top* domain - so even for staging, it should be .join.bebraven.org still
+cookie_domain: .localhost # this should be the *top* domain - so even for staging, it should be .join.bebraven.org still
 
 # If someone goes directly to the login url, this is where they end up
 # after a successful authentication. (They should never go directly there,
 # but copy/pasting the link could drop necessary form fields and get them
 # lost)
-default_service: http://canvas.docker/login/cas
+default_service: http://canvasweb/login/cas
 
 # This is the account number for google analytics. If this option is not
 # here, analytics script will not be added.
@@ -120,10 +120,10 @@ port: 3002
 
 database:
   adapter: postgresql
-  database: casserver
-  username: postgres
-  password:
-  host: ssodb
+  database: ${DATABASE_NAME}
+  username: ${DATABASE_USER}
+  password: ${DATABASE_PASSWORD}
+  host: ${DATABASE_HOST}
   reconnect: true
 
 #database:
@@ -210,12 +210,13 @@ database:
 authenticator:
   class: BeyondZ::CustomAuthenticator
   source: beyondz.rb
-  server: join.docker
+  # NOTE: in the local development environment, expose the Join server to this rubycas app by adding `127.0.0.1   joinweb` to your /etc/hosts file
+  server: joinweb
   # We can override ssl, port, and self signed options for dev
   # The default is to use SSL.
   ssl: false
-  port: 80
-  # allow_self_signed: true
+  port: 3001
+  allow_self_signed: true
 
 
 
