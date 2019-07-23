@@ -63,6 +63,9 @@ Edit `/etc/hosts` and add these values.
 127.0.0.1     ssoweb
 127.0.0.1     canvasweb
 ```
+Bring up the Join server locally b/c this Docker container is configured
+to point at it for the user database / credentials. Do this by following
+the instructions [here](https://github.com/beyond-z/beyondz-platform#docker-setup)
 
 Then, from your application root just run:
 ```Shell

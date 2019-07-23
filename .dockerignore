@@ -1,5 +1,5 @@
 # If you mix and match using Docker and manually setting stuff up, you could end up with a Gemfile.lock
-# In the Docker container, we want to have bundle install rebuild the Gemfile.lock to match the Ruby version
-# and stuff in the Dockerfile, so to be safe we just tell the container to ignore that file b/c it's hard
-# to troubleshoot build errors when this happens
+# In the Docker container, we want to have `bundle install` rebuild the Gemfile.lock to match the Ruby version
+# and stuff in the Dockerfile, so to be safe we just tell the container build to ignore that file and not
+# COPY or ADD it to the container b/c it's hard to troubleshoot build errors when this happens
 Gemfile.lock
