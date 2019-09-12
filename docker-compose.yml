@@ -1,4 +1,4 @@
-version: "3"
+version: "3.5"
 services:
 
   ssoweb:
@@ -8,8 +8,7 @@ services:
     ports:
       - "3002:3002"
     networks:
-      - frontend
-      - beyondz-platform_frontend
+      - bravendev
     depends_on:
       - ssodb
     environment:
@@ -24,14 +23,15 @@ services:
     volumes:
       - sso-db:/var/lib/postgresql/data
     networks:
-      - frontend
+      - bravendev
     environment:
       POSTGRES_DB: casserver
 
+# Note all Braven web app docker dev envs use this same network so they can talk to each other.
+# E.g. the hostname joinweb will resolve inside the ssoweb container if they are on the same docker network.
 networks:
-  frontend:
-  beyondz-platform_frontend:
-    external: true
+  bravendev:
+    name: braven_dev_network
 
 volumes:
   sso-db:

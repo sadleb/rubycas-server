@@ -8,7 +8,7 @@ RUN echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-bac
 RUN sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list
 
 # Note: gettext is installed to be able to use envsubst to inject config values
-RUN apt-get -o Acquire::Check-Valid-Until=false update -qq && apt-get install -y build-essential libpq-dev gettext
+RUN apt-get -o Acquire::Check-Valid-Until=false update -qq && apt-get install -y build-essential libpq-dev gettext vim
 
 # The rubycas Gemfile / gemspec doesn't specify a rails version since we use Apache Passenger modrails to run it in prod.  
 # Need this installed in the container to run the dev version.
@@ -18,12 +18,10 @@ RUN mkdir /app
 WORKDIR /app
 # Note: in .dockerignore we exclude Gemfile.lock b/c we want bundle install to regenerate it for
 # this version of Ruby. It doesn't get copied over to the container if you have one laying around from a non-Docker build.
-ADD Gemfile /app/Gemfile
-ADD rubycas-server.gemspec /app/rubycas-server.gemspec
+COPY Gemfile /app/Gemfile
+COPY rubycas-server.gemspec /app/rubycas-server.gemspec
 RUN bundle install
 
 # Do this after bundle install b/c if we do it before then changing any files
 # causes bundle install to be invalidated and run again on the next build 
-ADD . /app
-
-
+COPY . /app
