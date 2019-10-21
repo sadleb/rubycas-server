@@ -5,6 +5,9 @@ services:
     build:
       context: .
     command: /app/docker-compose/scripts/docker_compose_run.sh
+    # Temporarily replace the command above with this if you want the container to just stay open 
+    # so you can connect and troubleshoot b/c the container exits when you bring it up.
+    #tty: true
     ports:
       - "3002:3002"
     # Make changes done outside the container reflect inside the container without needing a rebuild by mounting a volume.
