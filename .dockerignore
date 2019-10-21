@@ -1,4 +1,1 @@
-# Nothing yet. Let's keep the outside and inside the same. If we start running into things that are
-# generated inside the container during the build that we want isolated from the outside, we can
-# add them here to be ignored. Just keep in mind that the whole root app is mounted as a volume,
-# so at runtime, the container will have what's on the outside. This file only affects buildtime.
+Gemfile.lock
