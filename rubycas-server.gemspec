@@ -42,7 +42,8 @@ $gemspec = Gem::Specification.new do |s|
   s.add_development_dependency("appraisal", "~> 0.4.1")
   s.add_development_dependency("guard", "~> 1.4.0")
   s.add_development_dependency("guard-rspec", "2.0.0")
-  s.add_development_dependency("public_suffix", "3.1.1") # Newer versions require Ruby 2.3 or higher. This is a dependency of webmock below (through addressable), so pin it to last version that supports ruby 2.1.
+  #s.add_development_dependency("public_suffix", "3.1.1") # Newer versions require Ruby 2.3 or higher. This is a dependency of webmock below (through addressable), so pin it to last version that supports ruby 2.1.
+  s.add_development_dependency("public_suffix", "1.4.3") # Staging and prod run Ruby 1.9.3. This is the last version supported for that version of ruby, so pin it.
   s.add_development_dependency("webmock", "~> 1.8")
   s.add_development_dependency("nokogiri", "1.6.3.1")
 
