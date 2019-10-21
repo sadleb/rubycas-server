@@ -26,7 +26,12 @@ WORKDIR /app
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 COPY rubycas-server.gemspec /app/rubycas-server.gemspec
-RUN bundle install
+
+# See this article for why we copy to /tmp
+# We have a runtime script to check this so we can deal
+# with changes properly when gem versions get updated.
+# https://nickjanetakis.com/blog/dealing-with-lock-files-when-using-ruby-node-and-elixir-with-docker
+RUN bundle install && cp Gemfile.lock /tmp
 
 # Do this after bundle install b/c if we do it before then changing any files
 # causes bundle install to be invalidated and run again on the next build 
